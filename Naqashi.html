@@ -1,0 +1,1310 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>NAQASHI — Royal Jewellery</title> <meta name="description" content="Naqashi — Royal jewellery crafted with timeless elegance."> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"> <style>
+/* ================================
+BASIC
+================================ */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#080706;
+color:#f5ead7;
+font-family:'Montserrat',sans-serif;
+overflow-x:hidden;
+}
+
+:root{
+--black:#080706;
+--dark:#100d09;
+--gold:#c9a45c;
+--lightgold:#f0d99b;
+--cream:#f5ead7;
+--muted:#9d9385;
+--line:rgba(201,164,92,.22);
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+section{
+scroll-margin-top:90px;
+}
+
+/* ================================
+GOLD PARTICLES
+================================ */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.35;
+background-image:
+radial-gradient(circle,#d9b96c 1px,transparent 1px),
+radial-gradient(circle,#fff2c7 1px,transparent 1px);
+background-size:120px 120px,190px 190px;
+background-position:10px 20px,80px 100px;
+z-index:-1;
+}
+
+/* ================================
+NAVBAR
+================================ */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:18px 7%;
+
+background:rgba(7,6,5,.88);
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid var(--line);
+
+}
+
+.logo{
+font-family:'Cormorant Garamond',serif;
+color:var(--lightgold);
+font-size:31px;
+font-weight:600;
+letter-spacing:7px;
+}
+
+.logo small{
+display:block;
+text-align:center;
+color:#8e806d;
+font-family:'Montserrat',sans-serif;
+font-size:7px;
+letter-spacing:4px;
+margin-top:-2px;
+}
+
+.nav-links{
+display:flex;
+gap:34px;
+list-style:none;
+}
+
+.nav-links a{
+color:#cfc2ad;
+font-size:10px;
+text-transform:uppercase;
+letter-spacing:2px;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--lightgold);
+}
+
+/* ================================
+HERO
+================================ */
+
+.hero{
+min-height:100vh;
+position:relative;
+
+display:flex;
+align-items:center;
+
+background:
+    linear-gradient(
+        90deg,
+        rgba(4,3,2,.98) 0%,
+        rgba(4,3,2,.85) 38%,
+        rgba(4,3,2,.25) 100%
+    ),
+    url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2200&q=90")
+    center/cover;
+
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:25px;
+border:1px solid rgba(201,164,92,.18);
+pointer-events:none;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+margin-left:9%;
+padding-top:70px;
+max-width:720px;
+}
+
+.eyebrow{
+color:var(--gold);
+font-size:10px;
+letter-spacing:5px;
+text-transform:uppercase;
+}
+
+.hero h1{
+margin-top:18px;
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(75px,10vw,135px);
+font-weight:500;
+line-height:.76;
+}
+
+.hero h1 span{
+color:var(--gold);
+font-style:italic;
+}
+
+.hero p.description{
+max-width:510px;
+margin:35px 0;
+color:#c7bcab;
+font-size:13px;
+line-height:2;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+}
+
+.gold-btn,
+.outline-btn{
+display:inline-block;
+padding:16px 30px;
+font-size:9px;
+text-transform:uppercase;
+letter-spacing:2px;
+transition:.35s;
+}
+
+.gold-btn{
+background:linear-gradient(135deg,#b68b3e,#e5c67d);
+color:#080706;
+border:1px solid var(--gold);
+}
+
+.gold-btn:hover{
+box-shadow:0 0 30px rgba(201,164,92,.35);
+transform:translateY(-4px);
+}
+
+.outline-btn{
+border:1px solid var(--gold);
+color:var(--lightgold);
+}
+
+.outline-btn:hover{
+background:var(--gold);
+color:#080706;
+}
+
+/* ================================
+DECORATIVE DIVIDER
+================================ */
+
+.divider{
+width:90px;
+height:1px;
+background:var(--gold);
+margin:25px auto;
+position:relative;
+}
+
+.divider::before,
+.divider::after{
+content:"◆";
+position:absolute;
+top:-7px;
+color:var(--gold);
+font-size:8px;
+}
+
+.divider::before{
+left:-15px;
+}
+
+.divider::after{
+right:-15px;
+}
+
+/* ================================
+ABOUT
+================================ */
+
+.about{
+padding:130px 9%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:90px;
+align-items:center;
+}
+
+.about-photo{
+position:relative;
+height:600px;
+}
+
+.about-photo::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+border:1px solid var(--gold);
+top:18px;
+left:18px;
+opacity:.5;
+}
+
+.about-photo img{
+position:relative;
+height:100%;
+object-fit:cover;
+}
+
+.about-text h2{
+font-family:'Cormorant Garamond',serif;
+font-size:68px;
+line-height:.88;
+font-weight:500;
+margin:15px 0 30px;
+}
+
+.about-text h2 span{
+color:var(--gold);
+font-style:italic;
+}
+
+.about-text p{
+max-width:520px;
+color:var(--muted);
+font-size:13px;
+line-height:2;
+margin-bottom:18px;
+}
+
+/* ================================
+COLLECTION
+================================ */
+
+.collection{
+padding:130px 7%;
+background:
+linear-gradient(rgba(15,12,9,.94),rgba(15,12,9,.98));
+}
+
+.section-heading{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-heading h2{
+font-family:'Cormorant Garamond',serif;
+font-size:65px;
+font-weight:500;
+}
+
+.section-heading p{
+color:var(--muted);
+font-size:12px;
+max-width:500px;
+margin:auto;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+
+.product{
+background:#080706;
+border:1px solid var(--line);
+position:relative;
+overflow:hidden;
+transition:.5s;
+}
+
+.product::before{
+content:"";
+position:absolute;
+inset:10px;
+border:1px solid rgba(201,164,92,.12);
+pointer-events:none;
+z-index:2;
+}
+
+.product:hover{
+transform:translateY(-10px);
+border-color:rgba(201,164,92,.7);
+box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.product-image{
+height:420px;
+overflow:hidden;
+}
+
+.product-image img{
+height:100%;
+object-fit:cover;
+transition:.8s;
+}
+
+.product:hover .product-image img{
+transform:scale(1.08);
+}
+
+.product-info{
+padding:25px;
+text-align:center;
+}
+
+.product-info small{
+color:var(--gold);
+letter-spacing:4px;
+font-size:8px;
+}
+
+.product-info h3{
+font-family:'Cormorant Garamond',serif;
+font-size:31px;
+font-weight:500;
+margin:5px 0;
+}
+
+.product-info p{
+color:#81786c;
+font-size:10px;
+}
+
+/* ================================
+WHY
+================================ */
+
+.why{
+padding:130px 8%;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+}
+
+.feature{
+padding:50px 40px;
+border-right:1px solid var(--line);
+text-align:center;
+}
+
+.feature:last-child{
+border-right:none;
+}
+
+.feature .number{
+color:var(--gold);
+font-family:'Cormorant Garamond',serif;
+font-size:20px;
+}
+
+.feature h3{
+font-family:'Cormorant Garamond',serif;
+font-size:32px;
+font-weight:500;
+margin:8px 0;
+}
+
+.feature p{
+color:var(--muted);
+font-size:11px;
+line-height:1.8;
+}
+
+/* ================================
+QUOTE
+================================ */
+
+.quote{
+padding:120px 10%;
+text-align:center;
+background:
+linear-gradient(rgba(5,4,3,.82),rgba(5,4,3,.95)),
+url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=2000&q=85")
+center/cover;
+}
+
+.quote h2{
+font-family:'Cormorant Garamond',serif;
+font-size:70px;
+font-weight:500;
+line-height:.9;
+}
+
+.quote h2 span{
+color:var(--gold);
+font-style:italic;
+}
+
+/* ================================
+CONTACT
+================================ */
+
+.contact{
+padding:130px 9%;
+background:#0d0a08;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+}
+
+.contact-info h2{
+font-family:'Cormorant Garamond',serif;
+font-size:68px;
+font-weight:500;
+line-height:.88;
+margin:15px 0 30px;
+}
+
+.contact-info h2 span{
+color:var(--gold);
+font-style:italic;
+}
+
+.contact-info > p{
+max-width:480px;
+color:var(--muted);
+font-size:12px;
+line-height:2;
+}
+
+.contact-item{
+margin-top:28px;
+}
+
+.contact-item span{
+display:block;
+color:var(--gold);
+font-size:8px;
+letter-spacing:4px;
+margin-bottom:5px;
+}
+
+.contact-item a,
+.contact-item p{
+color:#eee2cf;
+font-size:13px;
+}
+
+.contact-item a:hover{
+color:var(--gold);
+}
+
+/* FORM */
+
+.form-box{
+padding:40px;
+background:#080706;
+border:1px solid var(--line);
+position:relative;
+}
+
+.form-box::before{
+content:"";
+position:absolute;
+inset:12px;
+border:1px solid rgba(201,164,92,.1);
+pointer-events:none;
+}
+
+.form-box h3{
+font-family:'Cormorant Garamond',serif;
+font-size:38px;
+font-weight:500;
+margin-bottom:25px;
+}
+
+.form-box label{
+display:block;
+color:var(--gold);
+font-size:8px;
+letter-spacing:2px;
+margin:17px 0 7px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+width:100%;
+padding:14px;
+color:#eee2cf;
+background:#110e0b;
+border:1px solid var(--line);
+outline:none;
+font-family:'Montserrat',sans-serif;
+font-size:11px;
+}
+
+.form-box input:focus,
+.form-box textarea:focus{
+border-color:var(--gold);
+}
+
+.form-box textarea{
+resize:vertical;
+}
+
+.form-box button{
+margin-top:20px;
+cursor:pointer;
+}
+
+/* ================================
+FOOTER
+================================ */
+
+footer{
+padding:45px 8%;
+background:#050403;
+border-top:1px solid var(--line);
+text-align:center;
+}
+
+.footer-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:29px;
+letter-spacing:6px;
+color:var(--lightgold);
+}
+
+.footer-logo small{
+display:block;
+font-family:'Montserrat',sans-serif;
+font-size:6px;
+letter-spacing:4px;
+color:#776d5f;
+}
+
+footer p{
+margin-top:15px;
+color:#625a50;
+font-size:9px;
+}
+
+/* ================================
+WHATSAPP
+================================ */
+
+.whatsapp{
+position:fixed;
+right:22px;
+bottom:22px;
+z-index:999;
+
+width:58px;
+height:58px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:#25d366;
+color:white;
+
+font-size:11px;
+font-weight:600;
+
+box-shadow:0 5px 30px rgba(0,0,0,.5);
+
+transition:.3s;
+
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
+}
+
+/* ================================
+MOBILE
+================================ */
+
+@media(max-width:850px){
+
+.navbar{
+    padding:16px 5%;
+}
+
+.logo{
+    font-size:24px;
+    letter-spacing:4px;
+}
+
+.nav-links{
+    gap:12px;
+}
+
+.nav-links a{
+    font-size:7px;
+    letter-spacing:1px;
+}
+
+.hero{
+    min-height:100vh;
+    background-position:65% center;
+}
+
+.hero::after{
+    inset:12px;
+}
+
+.hero-content{
+    margin:0 7%;
+}
+
+.hero h1{
+    font-size:72px;
+}
+
+.buttons{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.about{
+    grid-template-columns:1fr;
+    padding:90px 7%;
+    gap:60px;
+}
+
+.about-photo{
+    height:450px;
+}
+
+.about-text h2{
+    font-size:55px;
+}
+
+.collection{
+    padding:90px 6%;
+}
+
+.section-heading h2{
+    font-size:52px;
+}
+
+.products{
+    grid-template-columns:1fr;
+}
+
+.product-image{
+    height:440px;
+}
+
+.why{
+    padding:90px 6%;
+}
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.feature{
+    border-right:none;
+    border-bottom:1px solid var(--line);
+}
+
+.feature:last-child{
+    border-bottom:none;
+}
+
+.quote{
+    padding:100px 7%;
+}
+
+.quote h2{
+    font-size:55px;
+}
+
+.contact{
+    padding:90px 7%;
+}
+
+.contact-grid{
+    grid-template-columns:1fr;
+    gap:55px;
+}
+
+.contact-info h2{
+    font-size:55px;
+}
+
+.form-box{
+    padding:30px 22px;
+}
+
+}
+
+</style> </head> <body> <!-- ================================ NAVBAR ================================ --> <header class="navbar">
+<a href="#home" class="logo">
+    NAQASHI
+    <small>JEWELLERY</small>
+</a>
+
+<ul class="nav-links">
+
+    <li><a href="#home">Home</a></li>
+
+    <li><a href="#about">About</a></li>
+
+    <li><a href="#collection">Collection</a></li>
+
+    <li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</header> <!-- ================================ HERO ================================ --> <section class="hero" id="home">
+<div class="hero-content">
+
+    <div class="eyebrow">
+        Royal • Timeless • Elegant
+    </div>
+
+    <h1>
+        Jewellery<br>
+        <span>With A Story.</span>
+    </h1>
+
+    <p class="description">
+        Discover exquisite jewellery created for those
+        who believe that true luxury is timeless.
+    </p>
+
+    <div class="buttons">
+
+        <a href="#collection" class="gold-btn">
+            Explore Collection
+        </a>
+
+        <a href="#contact" class="outline-btn">
+            Book An Enquiry
+        </a>
+
+    </div>
+
+</div>
+
+</section> <!-- ================================ ABOUT ================================ --> <section class="about" id="about">
+<div class="about-photo">
+
+    <img
+    src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=90"
+    alt="Naqashi Jewellery">
+
+</div>
+
+<div class="about-text">
+
+    <div class="eyebrow">
+        The Naqashi Story
+    </div>
+
+    <h2>
+        Crafted To Be
+        <span>Remembered.</span>
+    </h2>
+
+    <div class="divider" style="margin-left:20px;"></div>
+
+    <p>
+        At Naqashi, jewellery is more than an accessory.
+        It is an expression of personality, tradition,
+        celebration and love.
+    </p>
+
+    <p>
+        Every piece is inspired by timeless Indian artistry
+        and designed with a modern royal touch.
+    </p>
+
+    <br>
+
+    <a href="#collection" class="gold-btn">
+        Discover Our Collection
+    </a>
+
+</div>
+
+</section> <!-- ================================ COLLECTION ================================ --> <section class="collection" id="collection">
+<div class="section-heading">
+
+    <div class="eyebrow">
+        Signature Collection
+    </div>
+
+    <h2>
+        The Royal Edit
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>
+        A selection of elegant pieces created for
+        unforgettable moments.
+    </p>
+
+</div>
+
+<div class="products">
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=90"
+            alt="Royal Necklace">
+
+        </div>
+
+        <div class="product-info">
+
+            <small>NECKLACE</small>
+
+            <h3>Royal Heritage</h3>
+
+            <p>Elegant craftsmanship with timeless appeal.</p>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=90"
+            alt="Royal Ring">
+
+        </div>
+
+        <div class="product-info">
+
+            <small>RING</small>
+
+            <h3>Regal Solitaire</h3>
+
+            <p>A graceful statement of sophistication.</p>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=90"
+            alt="Gold Earrings">
+
+        </div>
+
+        <div class="product-info">
+
+            <small>EARRINGS</small>
+
+            <h3>Golden Grace</h3>
+
+            <p>Delicate details designed to shine.</p>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1000&q=90"
+            alt="Statement Jewellery">
+
+        </div>
+
+        <div class="product-info">
+
+            <small>STATEMENT</small>
+
+            <h3>Imperial Gold</h3>
+
+            <p>Created for unforgettable occasions.</p>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=90"
+            alt="Bridal Jewellery">
+
+        </div>
+
+        <div class="product-info">
+
+            <small>BRIDAL</small>
+
+            <h3>Royal Bride</h3>
+
+            <p>Made for the most beautiful day.</p>
+
+        </div>
+
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1000&q=90"
+            alt="Gold Ring">
+
+        </div>
+
+        <div class="product-info">
+
+            <small>RING</small>
+
+            <h3>Classic Gold</h3>
+
+            <p>Simple, elegant and effortlessly beautiful.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ================================ WHY NAQASHI ================================ --> <section class="why">
+<div class="section-heading">
+
+    <div class="eyebrow">
+        The Naqashi Difference
+    </div>
+
+    <h2>
+        The Art Behind Every Piece
+    </h2>
+
+    <div class="divider"></div>
+
+</div>
+
+<div class="features">
+
+    <div class="feature">
+
+        <div class="number">01</div>
+
+        <h3>Fine Craftsmanship</h3>
+
+        <p>
+            Every detail is thoughtfully designed
+            and carefully finished.
+        </p>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="number">02</div>
+
+        <h3>Timeless Design</h3>
+
+        <p>
+            Classic elegance blended with
+            modern sophistication.
+        </p>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="number">03</div>
+
+        <h3>Personal Touch</h3>
+
+        <p>
+            Jewellery selected around your
+            story and your occasion.
+        </p>
+
+    </div>
+
+</div>
+
+</section> <!-- ================================ QUOTE ================================ --> <section class="quote">
+<div class="eyebrow">
+    Your Next Signature Piece
+</div>
+
+<h2>
+    Find Something<br>
+    <span>Beautiful.</span>
+</h2>
+
+<div class="divider"></div>
+
+<a href="#contact" class="gold-btn">
+    Enquire Now
+</a>
+
+</section> <!-- ================================ CONTACT ================================ --> <section class="contact" id="contact">
+<div class="contact-grid">
+
+    <div class="contact-info">
+
+        <div class="eyebrow">
+            Contact Naqashi
+        </div>
+
+        <h2>
+            We'd Love<br>
+            <span>To Hear From You.</span>
+        </h2>
+
+        <p>
+            Speak with our team for jewellery enquiries,
+            appointments, custom requirements and
+            collection details.
+        </p>
+
+        <div class="contact-item">
+
+            <span>PHONE</span>
+
+            <!-- APNA NUMBER YAHAN LAGAYE -->
+
+            <a href="tel:+919571384855">
+                +91 9571384855
+            </a>
+
+        </div>
+
+        <div class="contact-item">
+
+            <span>WHATSAPP</span>
+
+            <!-- APNA WHATSAPP NUMBER YAHAN LAGAYE -->
+
+            <a href="https://wa.me/919571384855" target="_blank">
+                Chat With Naqashi
+            </a>
+
+        </div>
+
+        <div class="contact-item">
+
+            <span>EMAIL</span>
+
+            <a href="mailto:hello@naqashi.com">
+                hello@naqashi.com
+            </a>
+
+        </div>
+
+        <div class="contact-item">
+
+            <span>ADDRESS</span>
+
+            <!-- APNA ACTUAL ADDRESS YAHAN LIKHE -->
+
+            <p>
+                Jaipur, Rajasthan, India
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div class="form-box">
+
+        <h3>
+            Send An Enquiry
+        </h3>
+
+        <form onsubmit="sendWhatsApp(event)">
+
+            <label>Your Name</label>
+
+            <input
+            id="name"
+            type="text"
+            placeholder="Enter your name"
+            required>
+
+            <label>Phone Number</label>
+
+            <input
+            id="phone"
+            type="tel"
+            placeholder="+91"
+            required>
+
+            <label>Jewellery</label>
+
+            <select id="jewellery">
+
+                <option>Jewellery Enquiry</option>
+
+                <option>Bridal Jewellery</option>
+
+                <option>Necklace</option>
+
+                <option>Ring</option>
+
+                <option>Earrings</option>
+
+                <option>Custom Jewellery</option>
+
+            </select>
+
+            <label>Message</label>
+
+            <textarea
+            id="message"
+            rows="5"
+            placeholder="Tell us what you are looking for..."></textarea>
+
+            <button
+            type="submit"
+            class="gold-btn">
+
+                Send On WhatsApp
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</section> <!-- ================================ FOOTER ================================ --> <footer>
+<div class="footer-logo">
+
+    NAQASHI
+
+    <small>JEWELLERY</small>
+
+</div>
+
+<p>
+    © 2026 Naqashi Jewellery • All Rights Reserved
+</p>
+
+</footer> <!-- ================================ WHATSAPP BUTTON ================================ -->
+<a href="https://wa.me/919571384855" target="_blank" class="whatsapp">
+
+WA
+
+</a> <!-- ================================ JAVASCRIPT ================================ --> <script>
+function sendWhatsApp(event){
+
+event.preventDefault();
+
+/*
+===================================
+IMPORTANT
+
+Neeche apna WhatsApp number lagaye.
+
+Example:
+919571384855
+
++ sign mat lagana.
+===================================
+*/
+
+const whatsappNumber = "919571384855";
+
+const name =
+document.getElementById("name").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const jewellery =
+document.getElementById("jewellery").value;
+
+const message =
+document.getElementById("message").value;
+
+const text =
+"Hello Naqashi Jewellery!%0A%0A" +
+
+"Name: " +
+encodeURIComponent(name) +
+
+"%0APhone: " +
+encodeURIComponent(phone) +
+
+"%0AJewellery: " +
+encodeURIComponent(jewellery) +
+
+"%0AMessage: " +
+encodeURIComponent(message);
+
+window.open(
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    text,
+    "_blank"
+);
+
+}
+
+</script> </body> </html>
+
+
+
